@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+<div class="backgrounding">
+    <div class="header">
+        <h1 class="h1">Registration</h1>
+    </div>  
+    <div class="main-form" > 
+ <form #userform="ngForm" (ngSubmit)="registration()">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" name="fname" required #name1="ngModel" [class.is-invalid]="name1.invalid && name1.touched" class="form-control" placeholder="First Name"
+                 id="fn" [(ngModel)]="user.firstName">
+                <small class="text-danger" [class.d-none]="name1.valid || name1.untouched">First Name is required</small>    
+            </div>
+        </div>         
+        <div class="col">
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" name="lname" class="form-control" required #name2="ngModel" [class.is-invalid]="name2.invalid && name2.touched" [(ngModel)]="user.lastName" placeholder="Last Name">
+                    <small class="text-danger" [class.d-none]="name2.valid || name2.untouched">
+                        *Last name is required
+                    </small>
+                </div>     
+        </div>
+    </div>
+    <div  class="form-group">
+        <label>User Name</label>
+        <input type="text" name="user" pattern="^[a-bA-z]*@.[0-9]*$" minlength="6" required maxlength="15" class="form-control" #us="ngModel" placeholder="User Name" [class.is-invalid]="(us.invalid && us.touched)" [(ngModel)]="user.userName">
+        <div *ngIf="us.errors && (us.invalid || us.touched)">
+             <small *ngIf="us.errors.pattern || us.errors.minlength" class="text-danger">Minimum length should be 6 max length should be 12.UserNameShould contain '@' and digits.
+             </small>
+             <small *ngIf="us.errors.required && us.touched" class="text-danger">Username is required</small>
+        </div> 
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="pass"  pattern=".{8,12}" minlength="8" maxlength="12" required class="form-control" #pa="ngModel" placeholder="password" [class.is-invalid]="(pa.invalid && pa.touched)" [(ngModel)]="user.password">
+       <!-- <small class="text-danger" [class.d-none]="pa.valid || pa.untouched">*Password is required</small> -->
+       <div *ngIf="pa.errors && (pa.invalid || pa.touched) ">
+        <small *ngIf="pa.errors.pattern" class="text-danger">mininmum length should be 8 and max length should be 12</small>
+        <small *ngIf="pa.errors.required && pa.touched" class="text-danger">password is required</small>
+       </div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" required class="form-control" #em="ngModel" [class.is-invalid]="em.invalid && em.touched" [(ngModel)]="user.emailId" placeholder="Email">
+        <small class="text-danger" [class.d-none]="em.valid || em.untouched">*Email is mandatary</small>
+    </div>
+    <div class="form-group">
+        <label>Select Role</label>
+        <select (blur)="validaterole(ro.value)" (change)="validaterole(ro.value) "name="role" class="form-control" #ro="ngModel" [class.is-invalid]="roleHasError && ro.touched" [(ngModel)]="user.role">
+            <option value=" ">Please click here</option>
+            <option value="ADMIN">Admin</option>
+            <option value="STUDENT">Student</option>
+        </select>
+        <small class="text-danger" [class.d-none]="!roleHasError || ro.untouched">*please Choose a Role</small>
+    </div>
+    <div>
+        <button [disabled]="userform.form.invalid || roleHasError" type="submit" class="btn btn-primary">submit</button>
+    </div>
+</form>
+</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+<h3></h3>
+<div class="container">
+  <h2>Options For the Question</h2>
+  <p></p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>question Id</th>
+        <th>Ans Id</th>
+        <th>choice</th>
+        <th>Correct one</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let option of options">
+        <td>{{option.ques.qId}}</td>
+        <td>{{option.ansId}}</td>
+        <td>{{option.answer}}</td>
+        <td>{{option.isCorrect}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-success" (click)="backTo()">Back</button>
+</div>

@@ -1,0 +1,11 @@
+.qc{
+    background-image: url(contact.jpg);
+    background-size: cover;
+    background-position: center;
+    height:100%;
+    width:100%;
+    font-family: sans-serif;
+    margin-top: 0px;
+    margin-left: 0px;
+    
+}

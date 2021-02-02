@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Enrolled Students Details</h2>
+    <hr/>            
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>User Name</th>
+          <th>Email Id</th>
+        </tr>
+      </thead>
+      <tbody  *ngFor="let student of students">
+      
+        <tr *ngIf="student.role==='STUDENT'">
+    
+          <td>{{student .firstName}}</td>
+          <td>{{student.lastName}}</td>
+          <td>{{student.userName}}</td>
+          <td>{{student.emailId}}</td>
+        </tr>
+    
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-success" (click)="backTo()">Back</button>
+  </div>
+  

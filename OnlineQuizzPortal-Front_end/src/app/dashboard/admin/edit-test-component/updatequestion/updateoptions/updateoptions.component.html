@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Tests Available</h2>
+      <p>
+        You can modify tests available as well as you can add new tests
+        according to number of questions
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Answer Id</th>
+            <th>Question Id</th>
+            <th>Answer</th>
+            <th>Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let option of options">
+            <td>{{option.ansId }}</td>
+            <td>{{option.ques.qId}}</td>
+            <td>{{option.answer}}</td>
+            <td>{{option.isCorrect}}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="updateOption(option.ansId,option.ques.qId)"
+              >
+                Edit Option</button
+              >&nbsp;&nbsp;&nbsp;
+            </td>
+          </tr>
+        </tbody>
+        
+      </table>
+      <button type="button" class="btn btn-success" (click)="testlist()">
+        Tests
+      </button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-success" (click)="backTo()">
+        Back
+      </button>
+    </div>
+  </body>
+</html>

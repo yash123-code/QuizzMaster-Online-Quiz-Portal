@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">  
+        <div class="col-sm-6 "> 
+            <div class="signup-form "> 
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Create Test</h2>
+                        </div>
+                    </div>
+                    <div *ngIf="success" class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Success !</h4>
+                        <p>Test successfully Created</p>
+                      </div>
+                      <div *ngIf="error" class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Success !</h4>
+                        <p>Test creation Failed!!Test Id duplicate or Test Id is negative,please Enter Valid Test Id</p>
+                      </div>
+                      <div>
+                          <p class="tId">
+                              ID Must Be Positive
+                          </p>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-form-label col-md-4">Test Id:</label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control"  placeholder="Enter Id"  name="testName" [(ngModel)]="test.testId">
+                        </div>
+
+                    </div>                   
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-4">Test Name:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control"  placeholder="Enter testname"  name="testName" [(ngModel)]="test.testName">
+                        </div>
+                    </div>
+ <div class="form-group row">
+    <label class="col-form-label col-md-4">Test Creation Date:</label>
+       <div class="col-md-8">
+           <input type="date" class="form-control"  placeholder="testdate" name="testDate" [(ngModel)]="test.testDate">                       
+         </div>
+         <div class="duration">
+            <p>Enter Test Duration in(Hours:minutes:secs) Formate</p>
+          </div>
+</div>
+<div class="form-group row">
+    <label class="col-form-label col-md-4">Test Duration:</label>
+       <div class="col-md-8">
+           <input type="text" class="form-control"  placeholder="Hrs:Min:Sec" name="testDuration" [(ngModel)]="test.testDuration">                       
+         </div>
+        </div>
+        <div class="buttons">
+                            <button type="submit"  class="btn btn-success" (click)="createTest()">Create Test</button>&nbsp; &nbsp;
+
+                            <button  type="button" class="btn btn-primary" (click)="addQuestion(test.testId)" [disabled]="toggle">Add Question</button>&nbsp; &nbsp;
+
+                            <button  type="button" class="btn btn-primary" (click)="back()">Back</button>
+
+        </div>                   
+                </form>
+  
+            </div>
+        </div>
+    </div>
+  </div>

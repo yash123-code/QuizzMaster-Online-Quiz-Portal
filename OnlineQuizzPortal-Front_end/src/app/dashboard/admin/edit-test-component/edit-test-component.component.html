@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Tests Available</h2>
+  <p>You can modify tests available as well as you can add new tests according to number of questions</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Test Id</th>
+        <th>Question Id</th>
+        <th>Question</th>
+        <th>marks</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let testquestion of testquestions">
+        <td>{{testquestion.test1.testId}}</td>
+        <td>{{testquestion.qId}}</td>
+        <td>{{testquestion.que}}</td>
+        <td>{{testquestion.marks}}</td>
+        <td><button type="button" class="btn btn-success" (click)="updateQuestion(testquestion.qId,testquestion.test1.testId)">Edit Question</button>&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-success" (click)="updateOptions(testquestion.qId,testquestion.test1.testId)" [disabled]="toggle">Edit Options</button></td>            
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-success" (click)="backTo()">Back</button> 
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">  
+        <div class="col-sm-6 "> 
+            <div class="signup-form "> 
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Add  Options</h2>
+                        </div>
+                    </div>
+                    <div *ngIf="success" class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Success !</h4>
+                        <p>Option added successfuly</p>
+                      </div>
+                      <div *ngIf="failure" class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Success !</h4>
+                        <p>Option addition failed</p>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-form-label col-md-4">Question Id</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control"  name="testid" [(ngModel)]="testoption.ques.qId" disabled>
+                        </div>
+                       </div>
+                      <div class="form-group row">
+                        <label class="col-form-label col-md-4">option</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control"  placeholder="Enter Option"  name="option" [(ngModel)]="testoption.answer">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-4">Correct(true or false)</label>
+                        <div class="col-md-8">
+                            <input type="radio" name="correct" value="true" [(ngModel)]="testoption.isCorrect">Correct &nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="correct" value="false" [(ngModel)]="testoption.isCorrect">Wrong
+                        </div>
+                    </div> 
+                    <div>                             
+                            <button type="submit"  class="btn btn-success" (click)="addOption(testoption.ques.qId)">Add Option</button>&nbsp; &nbsp;
+                            <button  type="button" class="btn btn-primary" (click)="backTo()">Back</button>
+        </div>                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

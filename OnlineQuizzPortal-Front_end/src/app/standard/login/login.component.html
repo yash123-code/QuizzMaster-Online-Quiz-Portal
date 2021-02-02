@@ -1,0 +1,30 @@
+
+<html>
+    <head>
+        <title> Login for QuizApp</title>
+        <!--<link rel="stylesheet" href="loginQ.css">-->
+    </head>
+    <body>
+        <div class="test">
+        <div class="login-box">
+            <h1>Login</h1>
+            <p class="er">{{error}}</p>
+            <p *ngIf="f" class="er">You are not login</p>
+            <form #loginform="ngForm" (ngSubmit)="loginUser()">
+            <small class="text-danger">{{msg}}</small>
+            <div class="textbox">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <input type="text" placeholder="Email" name="emailId" [(ngModel)]="user.emailId">
+            </div>
+            <div class="textbox">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <input type="password" placeholder="Password" name="pass" [(ngModel)]="user.password">
+            </div>
+            <input class="btn" type="submit" value="Sign In">
+            <a href="register" class="btn2">Register</a>
+        </form>
+        </div>
+    </div>
+   
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!--<form action="">
+    <div #testform="ngForm" class="form-group">
+      <label for="testname">Test Name</label>
+      <input type="name" class="form-control" id="nm" [(ngModel)]="test.testname">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Test Date</label>
+      <input type="date" class="form-control" id="pwd" [(ngModel)]="test.date">
+    </div>
+    <div class="form-group">
+      <label for="time">Test time</label>
+      <input type="time" class="form-control" id="tm">
+    </div>
+    <button type="submit" class="btn btn-default" (click)="testSubmit()">Edit</button>
+  </form>-->
+<div class="container">
+  <h2>Tests Available</h2>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Test Id</th>
+        <th>Question Id</th>
+        <th>Question</th>
+        <th>Marks</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let testquestion of testquestions">
+        <td>{{testquestion.test1.testId}}</td>
+        <td>{{testquestion.qId}}</td>
+        <td>{{testquestion.que}}</td>
+        <td>{{testquestion.marks}}</td>
+        <td><button type="button" class="btn btn-success" (click)="viewOptions(testquestion.qId,testquestion.test1.testId)">View</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-success" (click)="backTo()">Back</button>
+</div>
